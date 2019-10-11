@@ -6,10 +6,10 @@ namespace TicTacToeSubmissionConole
     {
         static void Main(string[] args)
         {
-            ConsoleColor oldColor = Console.ForegroundColor;
+            ConsoleColor blue = Console.ForegroundColor;
 
-            Console.SetCursorPosition(10,2);
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.SetCursorPosition(14,2);
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("Welcome to Tic Tac Toe");
 
             var ticTacToe = new TicTacToe();
@@ -17,12 +17,11 @@ namespace TicTacToeSubmissionConole
             ticTacToe.Run();
 
 
-            Console.ForegroundColor = oldColor ;
+            Console.ForegroundColor = blue ;
 
 
             Console.SetCursorPosition(20, 25);
-            Console.WriteLine("Thank you for playing");
-            Console.ReadLine();
+            Console.WriteLine("Thank you for playing");           
         }
     }
 }
