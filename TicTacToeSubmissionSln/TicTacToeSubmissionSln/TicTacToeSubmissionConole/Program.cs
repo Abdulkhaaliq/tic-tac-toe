@@ -14,14 +14,7 @@ namespace TicTacToeSubmissionConole
 
             var ticTacToe = new TicTacToe();
 
-            ticTacToe.Run();
-
-
-            Console.ForegroundColor = blue ;
-
-
-            Console.SetCursorPosition(20, 25);
-            Console.WriteLine("Thank you for playing");           
+            ticTacToe.TicTacToeGame();         
         }
     }
 }
