@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using TicTacToeRendererLib.Enums;
 using TicTacToeRendererLib.Renderer;
 
@@ -17,7 +15,7 @@ namespace TicTacToeSubmissionConole
         }
 
 
-        public int getCoords(int x, int y)
+        public int coordinates(int x, int y)
         {
             var result = x * 3 + y;
 
@@ -25,29 +23,29 @@ namespace TicTacToeSubmissionConole
 
         }
 
-        char[] spaces = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
-        public void CheckXWin()
+        char[] pos = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+        public void XWinCheck()
         {
-            if (spaces[0] == 'X' && spaces[1] == 'X' && spaces[2] == 'X' ||
-                spaces[3] == 'X' && spaces[4] == 'X' && spaces[5] == 'X' ||
-                spaces[6] == 'X' && spaces[7] == 'X' && spaces[8] == 'X')
+            if (pos[0] == 'X' && pos[1] == 'X' && pos[2] == 'X' ||
+                pos[3] == 'X' && pos[4] == 'X' && pos[5] == 'X' ||
+                pos[6] == 'X' && pos[7] == 'X' && pos[8] == 'X')
             {
                 Console.WriteLine(" X has won,");
                 Console.WriteLine("Game Over");
                 return;
             }
 
-            if (spaces[0] == 'X' && spaces[3] == 'X' && spaces[6] == 'X' ||
-               spaces[1] == 'X' && spaces[4] == 'X' && spaces[7] == 'X' ||
-               spaces[2] == 'X' && spaces[5] == 'X' && spaces[8] == 'X')
+            if (pos[0] == 'X' && pos[3] == 'X' && pos[6] == 'X' ||
+               pos[1] == 'X' && pos[4] == 'X' && pos[7] == 'X' ||
+               pos[2] == 'X' && pos[5] == 'X' && pos[8] == 'X')
             {
                 Console.WriteLine(" X has won");
                 Console.WriteLine("Game Over");
                 return;
             }
 
-            if (spaces[0] == 'X' && spaces[4] == 'X' && spaces[8] == 'X' ||
-               spaces[2] == 'X' && spaces[4] == 'X' && spaces[6] == 'X'
+            if (pos[0] == 'X' && pos[4] == 'X' && pos[8] == 'X' ||
+               pos[2] == 'X' && pos[4] == 'X' && pos[6] == 'X'
                )
             {
                 Console.WriteLine(" X has won");
@@ -56,28 +54,28 @@ namespace TicTacToeSubmissionConole
             }
         }
 
-        public void CheckOWin()
+        public void OWinCheck()
         {
-            if (spaces[0] == 'O' && spaces[1] == 'O' && spaces[2] == 'O' ||
-                spaces[3] == 'O' && spaces[4] == 'O' && spaces[5] == 'O' ||
-                spaces[6] == 'O' && spaces[7] == 'O' && spaces[8] == 'O')
+            if (pos[0] == 'O' && pos[1] == 'O' && pos[2] == 'O' ||
+                pos[3] == 'O' && pos[4] == 'O' && pos[5] == 'O' ||
+                pos[6] == 'O' && pos[7] == 'O' && pos[8] == 'O')
             {
                 Console.WriteLine(" O has won");
                 Console.WriteLine("Game Over");
                 return;
             }
 
-            if (spaces[0] == 'O' && spaces[3] == 'O' && spaces[6] == 'O' ||
-                spaces[1] == 'O' && spaces[4] == 'O' && spaces[7] == 'O' ||
-                spaces[2] == 'O' && spaces[5] == 'O' && spaces[8] == 'O')
+            if (pos[0] == 'O' && pos[3] == 'O' && pos[6] == 'O' ||
+                pos[1] == 'O' && pos[4] == 'O' && pos[7] == 'O' ||
+                pos[2] == 'O' && pos[5] == 'O' && pos[8] == 'O')
             {
                 Console.WriteLine(" O has won");
                 Console.WriteLine("Game Over");
                 return;
             }
 
-            if (spaces[0] == 'O' && spaces[4] == 'O' && spaces[8] == 'O' ||
-                spaces[2] == 'O' && spaces[4] == 'O' && spaces[6] == 'O'
+            if (pos[0] == 'O' && pos[4] == 'O' && pos[8] == 'O' ||
+                pos[2] == 'O' && pos[4] == 'O' && pos[6] == 'O'
                )
             {
                 Console.WriteLine(" O has won");
@@ -85,11 +83,11 @@ namespace TicTacToeSubmissionConole
                 return;
             }
         }
-        public void TicTacToeGame()
+        public void Run()
         {
-            for (int index = 0; index < spaces.Length; index++)
+            for (int index = 0; index < pos.Length; index++)
             {
-                if(index >= spaces.Length)
+                if(index >= pos.Length)
                 {
                     Console.WriteLine("Donkey");
                 }
@@ -97,16 +95,16 @@ namespace TicTacToeSubmissionConole
 
                 Console.SetCursorPosition(10, 12);
                 Console.WriteLine("Enter row");
-                var getUserInputX = Int32.Parse(Console.ReadLine()) - 1;
+                var inputX = Int32.Parse(Console.ReadLine()) - 1;
 
 
                 Console.SetCursorPosition(10, 14);
                 Console.WriteLine("Enter column");
-                var getUserInputY = Int32.Parse(Console.ReadLine()) - 1;
-                var getUserInput = getCoords(getUserInputX, getUserInputY);
+                var inputY = Int32.Parse(Console.ReadLine()) - 1;
+                var input = coordinates(inputX, inputY);
                 var playerCharacter = ' ';
 
-                if (spaces[getUserInput] != ' ')
+                if (pos[input] != ' ')
                 {
                     Console.WriteLine("Invalid Character");
                 }
@@ -124,17 +122,17 @@ namespace TicTacToeSubmissionConole
                     if (playerCharacter == 'X')
                     {
                         
-                        _boardRenderer.AddMove(getUserInputX, getUserInputY, PlayerEnum.X, true);
+                        _boardRenderer.AddMove(inputX, inputY, PlayerEnum.X, true);
                     }
                     else
                     {
-                        _boardRenderer.AddMove(getUserInputX, getUserInputY, PlayerEnum.O, true);
+                        _boardRenderer.AddMove(inputX, inputY, PlayerEnum.O, true);
                     }
 
-                    spaces[getUserInput] = playerCharacter;
+                    pos[input] = playerCharacter;
 
-                    CheckXWin();
-                    CheckOWin();
+                    XWinCheck();
+                    OWinCheck();
                 }
              }     
         }

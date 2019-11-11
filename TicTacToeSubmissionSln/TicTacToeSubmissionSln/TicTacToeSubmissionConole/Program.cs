@@ -6,7 +6,7 @@ namespace TicTacToeSubmissionConole
     {
         static void Main(string[] args)
         {
-            ConsoleColor blue = Console.ForegroundColor;
+            ConsoleColor pink = Console.ForegroundColor;
 
             Console.SetCursorPosition(14,2);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -14,7 +14,7 @@ namespace TicTacToeSubmissionConole
 
             var ticTacToe = new TicTacToe();
 
-            ticTacToe.TicTacToeGame();         
+            ticTacToe.Run();         
         }
     }
 }
