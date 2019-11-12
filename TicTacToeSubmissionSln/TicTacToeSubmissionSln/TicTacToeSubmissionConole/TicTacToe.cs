@@ -24,6 +24,7 @@ namespace TicTacToeSubmissionConole
         }
 
         char[] pos = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+
         public void CheckWin()
         {
             if (pos[0] == 'X' && pos[1] == 'X' && pos[2] == 'X' ||
@@ -112,14 +113,14 @@ namespace TicTacToeSubmissionConole
 
                 Console.SetCursorPosition(10, 12);
                 Console.WriteLine("Enter row");
-                var inputX = Int32.Parse(Console.ReadLine()) - 1;
+                var inputX = Int32.Parse(Console.ReadLine());
 
 
                 Console.SetCursorPosition(10, 14);
                 Console.WriteLine("Enter column");
-                var inputY = Int32.Parse(Console.ReadLine()) - 1;
+                var inputY = Int32.Parse(Console.ReadLine());
                 var input = coordinates(inputX, inputY);
-                var playerCharacter = ' ';
+                var player = ' ';
 
                 if (pos[input] != ' ')
                 {
@@ -129,14 +130,14 @@ namespace TicTacToeSubmissionConole
                 {
                     if (index % 2 == 0)
                     {
-                        playerCharacter = 'X';
+                        player = 'X';
                     }
                     else
                     {
-                        playerCharacter = 'O';
+                        player = 'O';
                     }
 
-                    if (playerCharacter == 'X')
+                    if (player == 'X')
                     {
                         
                         _boardRenderer.AddMove(inputX, inputY, PlayerEnum.X, true);
@@ -146,7 +147,7 @@ namespace TicTacToeSubmissionConole
                         _boardRenderer.AddMove(inputX, inputY, PlayerEnum.O, true);
                     }
 
-                    pos[input] = playerCharacter;
+                    pos[input] = player;
 
                     CheckWin();                  
                 }
