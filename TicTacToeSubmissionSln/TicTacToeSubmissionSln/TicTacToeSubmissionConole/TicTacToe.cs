@@ -24,13 +24,16 @@ namespace TicTacToeSubmissionConole
         }
 
         char[] pos = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
-        public void XWinCheck()
+        public void CheckWin()
         {
             if (pos[0] == 'X' && pos[1] == 'X' && pos[2] == 'X' ||
                 pos[3] == 'X' && pos[4] == 'X' && pos[5] == 'X' ||
                 pos[6] == 'X' && pos[7] == 'X' && pos[8] == 'X')
             {
-                Console.WriteLine(" X has won,");
+                Console.SetCursorPosition(10, 16);
+                Console.WriteLine(" X has won");
+
+                Console.SetCursorPosition(10, 18);
                 Console.WriteLine("Game Over");
                 return;
             }
@@ -39,7 +42,10 @@ namespace TicTacToeSubmissionConole
                pos[1] == 'X' && pos[4] == 'X' && pos[7] == 'X' ||
                pos[2] == 'X' && pos[5] == 'X' && pos[8] == 'X')
             {
+                Console.SetCursorPosition(10, 16);
                 Console.WriteLine(" X has won");
+
+                Console.SetCursorPosition(10, 18);
                 Console.WriteLine("Game Over");
                 return;
             }
@@ -48,19 +54,22 @@ namespace TicTacToeSubmissionConole
                pos[2] == 'X' && pos[4] == 'X' && pos[6] == 'X'
                )
             {
+                Console.SetCursorPosition(10, 16);
                 Console.WriteLine(" X has won");
+
+                Console.SetCursorPosition(10, 18);
                 Console.WriteLine("Game Over");
                 return;
             }
-        }
-
-        public void OWinCheck()
-        {
+  
             if (pos[0] == 'O' && pos[1] == 'O' && pos[2] == 'O' ||
                 pos[3] == 'O' && pos[4] == 'O' && pos[5] == 'O' ||
                 pos[6] == 'O' && pos[7] == 'O' && pos[8] == 'O')
             {
+                Console.SetCursorPosition(10, 16);
                 Console.WriteLine(" O has won");
+
+                Console.SetCursorPosition(10, 18);
                 Console.WriteLine("Game Over");
                 return;
             }
@@ -69,7 +78,10 @@ namespace TicTacToeSubmissionConole
                 pos[1] == 'O' && pos[4] == 'O' && pos[7] == 'O' ||
                 pos[2] == 'O' && pos[5] == 'O' && pos[8] == 'O')
             {
+                Console.SetCursorPosition(10, 16);
                 Console.WriteLine(" O has won");
+
+                Console.SetCursorPosition(10, 18);
                 Console.WriteLine("Game Over");
                 return;
             }
@@ -78,8 +90,11 @@ namespace TicTacToeSubmissionConole
                 pos[2] == 'O' && pos[4] == 'O' && pos[6] == 'O'
                )
             {
+                Console.SetCursorPosition(10, 16);
                 Console.WriteLine(" O has won");
-                Console.WriteLine("Thank you for playing");
+
+                Console.SetCursorPosition(10, 18);
+                Console.WriteLine("Game Over");
                 return;
             }
         }
@@ -89,6 +104,8 @@ namespace TicTacToeSubmissionConole
             {
                 if(index >= pos.Length)
                 {
+                    Console.SetCursorPosition(10, 16);
+
                     Console.WriteLine("Donkey");
                 }
 
@@ -131,8 +148,7 @@ namespace TicTacToeSubmissionConole
 
                     pos[input] = playerCharacter;
 
-                    XWinCheck();
-                    OWinCheck();
+                    CheckWin();                  
                 }
              }     
         }
