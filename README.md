@@ -1,2 +1,2 @@
 # tic-tac-toe
-Assignment
+Console tic tac toe game
